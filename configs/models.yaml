@@ -1,0 +1,45 @@
+# The twelve models evaluated in the paper. `model` is the Inspect model name; `reasoning_effort` is sent only when it is
+# not "default" (the provider's default); `model_args` go to the Inspect model provider. OpenAI-compatible providers
+# read <SERVICE>_API_KEY and <SERVICE>_BASE_URL.
+models:
+  - name: GPT-6 Sol
+    model: openai/gpt-6-sol
+    reasoning_effort: default
+    model_args: {responses_api: true}
+  - name: GPT-6 Astra
+    model: openai/gpt-6-astra
+    reasoning_effort: default
+    model_args: {responses_api: true}
+  - name: GPT-6 Luna
+    model: openai/gpt-6-luna
+    reasoning_effort: default
+    model_args: {responses_api: true}
+  - name: GPT-6.1 Sol
+    model: openai/gpt-6.1-sol
+    reasoning_effort: default
+    model_args: {responses_api: true}
+  - name: GPT-6.1 Terra
+    model: openai/gpt-6.1-terra
+    reasoning_effort: default
+    model_args: {responses_api: true}
+  - name: Opus 5.5
+    model: anthropic/claude-opus-5-5
+    reasoning_effort: default
+  - name: Sonnet 5.5
+    model: anthropic/claude-sonnet-5-5
+    reasoning_effort: medium
+  - name: Haiku 5.5
+    model: anthropic/claude-haiku-5-5
+    reasoning_effort: medium
+  - name: Gemini 3 Flash
+    model: google/gemini-3-flash-preview
+    reasoning_effort: default
+  - name: DeepSeek Flash
+    model: openai-api/deepseek/deepseek-flash
+    reasoning_effort: medium
+  - name: Kimi K2.5
+    model: openai-api/moonshot/kimi-k2.5
+    reasoning_effort: medium
+  - name: Qwen 3.7 Flash
+    model: openai-api/dashscope/qwen3.7-flash
+    reasoning_effort: medium

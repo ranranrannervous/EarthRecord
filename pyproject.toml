@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "earthrecord"
+version = "1.0.0"
+description = "EarthRecord: land-change analysis by multimodal agents on the raw satellite record"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+dependencies = [
+    "inspect-ai==0.3.286",
+    "huggingface_hub>=0.30",
+    "pyyaml>=6",
+]
+
+[project.optional-dependencies]
+providers = ["openai", "anthropic", "google-genai"]
+
+[project.entry-points.inspect_ai]
+earthrecord = "earthrecord.task"
+
+[tool.setuptools]
+packages = ["earthrecord"]
