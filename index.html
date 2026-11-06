@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EarthRecord: From Pixels to Land Change with Multimodal Agents over Four Decades of Satellite Imagery</title>
+  <meta name="description" content="EarthRecord is a benchmark of 238 land-change questions on the raw, four-decade, multi-sensor satellite record of 56 sites, with closed-book and instrument-pair controls, evaluating multimodal agents end to end.">
+  <meta name="keywords" content="EarthRecord, benchmark, multimodal agents, remote sensing, Earth observation, land change, Landsat, MODIS, Sentinel-2, VIIRS">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="EarthRecord: From Pixels to Land Change with Multimodal Agents">
+  <meta property="og:description" content="A benchmark of 238 land-change questions on the raw, four-decade, multi-sensor satellite record of 56 sites.">
+  <meta property="og:url" content="https://ranranrannervous.github.io/EarthRecord/">
+  <meta property="og:image" content="https://ranranrannervous.github.io/EarthRecord/static/images/teaser_preview.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛰️</text></svg>">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <script src="./static/js/leaderboard-data.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"><span class="er-name">EarthRecord</span></h1>
+          <h2 class="subtitle is-3 publication-subtitle">From Pixels to Land Change with Multimodal Agents over Four Decades of Satellite Imagery</h2>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Haoran Zhang<sup>1,2</sup>,</span>
+            <span class="author-block">Huizhen Sun<sup>1</sup>,</span>
+            <span class="author-block">Hanbin Wen<sup>3</sup>,</span>
+            <span class="author-block">Jie Leng<sup>4</sup>,</span>
+            <span class="author-block">Jiaxin Zhu<sup>4</sup>,</span>
+            <span class="author-block">Zhaohua Sun<sup>5,*</sup></span>
+          </div>
+
+          <div class="publication-affiliations mt-3">
+            <span class="author-block"><sup>1</sup>AIEyes Technologies (Hong Kong) Co., Limited</span>
+            <span class="author-block"><sup>2</sup>College of Future Technology, The Hong Kong University of Science and Technology (Guangzhou)</span>
+            <span class="author-block"><sup>3</sup>School of Physics and Optoelectronic Engineering, Guangdong University of Technology</span>
+            <span class="author-block"><sup>4</sup>Anhua Ocean Intelligent Equipment Co., Ltd.</span>
+            <span class="author-block"><sup>5</sup>Department of Mechanical Engineering, The University of Hong Kong</span>
+            <br>
+            <span class="author-block"><sup>*</sup>Corresponding author: <a href="mailto:joshsun@hku.hk">joshsun@hku.hk</a></span>
+          </div>
+
+          <div class="publication-links">
+            <span class="link-block is-hidden" id="arxiv-block">
+              <a href="#" id="arxiv-link"class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://huggingface.co/datasets/haoranranranran/EarthRecord" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><span class="emoji">🤗</span></span><span>Dataset</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://github.com/ranranrannervous/EarthRecord" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="#leaderboard" class="button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fa-solid fa-trophy"></i></span><span>Leaderboard</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="#examples" class="button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fa-solid fa-book"></i></span><span>Examples</span>
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="static/images/teaser.webp" alt="One question answered by GPT-6 Sol without the record, with the record, and with one satellite altered; the benchmark and protocol; and results of twelve agents." width="2400" height="1270">
+      <p class="caption">
+        <b>EarthRecord at a glance.</b>
+        (a) One question answered by GPT-6 Sol under the three conditions (quotes from one of three runs).
+        Without the record, it answers from regional priors; with the record, it computes the right answer from the pixels; with one satellite altered, it follows the altered pixels although the forest has not changed.
+        (b) Benchmark and protocol.
+        (c, d) Twelve agents: answers needing a map lag those computed from the record, and half of right answers change when one satellite's data are altered.
+        Red circle in (b) and black box in (d) mark the site and case of (a).
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section pt-2">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">🔔 News</h2>
+        <div class="content">
+          <p><b>[2026-11]</b> We release the EarthRecord benchmark data and the evaluation code with the results of all twelve agents.</p>
+        </div>
+
+        <h2 class="title is-3 has-text-centered mt-6">Introduction</h2>
+        <div class="content has-text-justified">
+          <p>
+            While multimodal agents now carry out complex data analysis with tools, their ability to turn decades of satellite imagery into reliable land-change analysis, crucial for Earth observation science, remains unmeasured.
+            Existing benchmarks pose questions on curated images or give agents preprocessed inputs, leaving out the raw multi-sensor archives where such analysis begins.
+          </p>
+          <p>
+            We introduce <span class="er-name">EarthRecord</span>, a benchmark built on the raw record of 56 sites: four decades of Landsat, MODIS, VIIRS, and Sentinel-2 data, with cloud masking and cross-sensor harmonization left to the agent.
+            It poses 238 land-change questions across ten analysis tasks, scored against withheld references from global products, agreement among methods, and visual interpretation.
+            Two controls test what answers rest on: the <b>closed book</b> removes the record, and <b>instrument pairs</b> alter one satellite's data while nothing changes on the ground.
+          </p>
+          <p>
+            Evaluations of twelve multimodal agents reveal that leading agents complete most analyses end to end but falter when an answer requires mapping from imagery.
+            Further analysis shows that the record moves answers from prior knowledge to the pixels but not yet to the real change on the ground: when one satellite's data are altered, half of the right answers follow the alteration.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Benchmark -->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 band-title"><span class="er-name">EarthRecord</span> Benchmark</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Overview</h2>
+        <div class="content has-text-justified">
+          <p>
+            Each EarthRecord question asks about the land surface at a given site over a given period.
+            In an offline sandbox, the agent receives the site's <em>raw record</em> as distributed by its providers, leaving data selection, cloud masking, scaling, mapping, and cross-sensor harmonization to the agent, and submits a structured answer scored against verifiable references under the standard evaluation and two controls.
+          </p>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><div class="stat-value">56</div><div class="stat-label">sites: 48 core areas and 8 regions</div></div>
+          <div class="stat"><div class="stat-value">1984&ndash;2026</div><div class="stat-label">record up to 30 September 2026</div></div>
+          <div class="stat"><div class="stat-value">238</div><div class="stat-label">land-change questions</div></div>
+          <div class="stat"><div class="stat-value">10</div><div class="stat-label">analysis tasks</div></div>
+          <div class="stat"><div class="stat-value">57,157</div><div class="stat-label">Landsat scenes over the core areas</div></div>
+          <div class="stat"><div class="stat-value">686 GB</div><div class="stat-label">raw data as distributed</div></div>
+          <div class="stat"><div class="stat-value">22 + 8</div><div class="stat-label">instrument and placebo pairs</div></div>
+          <div class="stat"><div class="stat-value">12</div><div class="stat-label">agents, three passes each</div></div>
+        </div>
+
+        <div class="content has-text-justified mt-5">
+          <p>
+            EarthRecord spans 56 sites: 48 core areas of 10&ndash;30&nbsp;km on a side, covering eight themes across six continents and all five K&ouml;ppen climate groups, and 8 administrative regions.
+            The record combines four decades of observations: Landsat surface reflectance from 1984 across TM, ETM+, and OLI; MODIS vegetation indices, land surface temperature, and snow cover on Terra and Aqua from 2000; VIIRS vegetation indices and temperature from 2012; Sentinel-2 surface reflectance from 2019; and ERA5-Land reanalysis, global land cover, terrain, and administrative boundaries.
+            Pixel values are unmodified: scale factors, offsets, and quality layers are not applied, and archive issues present as distributed are kept.
+          </p>
+        </div>
+        <div class="figure">
+          <img src="static/images/record.webp" alt="Sensor coverage in the record and true-color crops of one site on four dates." loading="lazy">
+          <p class="caption">
+            <b>The record spans changing instruments.</b>
+            (a) Sensor coverage in the record, with hatching after the 2003 Landsat 7 scan-line corrector failure.
+            (b) True-color crops of one site on the dates marked 1&ndash;4, with the same extent and reflectance stretch.
+          </p>
+        </div>
+
+        <h2 class="title is-3 has-text-centered mt-6">Questions and Reference Answers</h2>
+        <div class="content has-text-justified">
+          <p>
+            The benchmark poses 238 questions over periods of 1 to 38 years.
+            Every question specifies structured answer fields, including a designated conclusion field used for scoring, and every field accepts <em>insufficient evidence</em>.
+            Questions fall into three classes:
+            <b>computable</b> questions (153) ask for quantities that a formula can derive from the record, such as greenness trends, lake-area trends, or snow-cover days;
+            <b>recognition</b> questions (73) ask what is on the ground or what happened, such as forest loss, burn scars, built-up expansion, or coastal reclamation;
+            and <b>insufficient-evidence</b> questions (12) cover periods with too few clear observations to support a conclusion.
+          </p>
+        </div>
+        <div class="figure">
+          <img src="static/images/cases.webp" alt="One example question per class with Landsat scenes and reference answers." loading="lazy">
+          <p class="caption">
+            <b>One example question per class.</b>
+            Questions are shortened, and bold text gives the reference answer.
+            (a&ndash;c) Two Landsat scenes of one site, with the same extent and reflectance stretch within each pair.
+            (d) Landsat scenes per year at one site, with the question period in gray.
+          </p>
+        </div>
+        <div class="content has-text-justified">
+          <p>The target quantity determines the source of each reference answer:</p>
+          <ul>
+            <li><b>Agreement among methods</b> (98 questions). Several methods compute each quantity from variables in the record; numeric references take the method median, and categorical and date conclusions require at least 75% of methods to agree.</li>
+            <li><b>Products in the record</b> (13 questions). The reference comes from global products included in the record.</li>
+            <li><b>Withheld products</b> (78 questions). Hansen forest loss, JRC surface water, GHSL built-up surface, and MCD64A1 burned area are withheld from the record, so the agent must map the change from the imagery itself.</li>
+            <li><b>Visual interpretation</b> (37 questions). Causes and land-cover types, and cases where products and methods diverge widely, are set by human review of AI-drafted visual interpretations of the imagery.</li>
+          </ul>
+          <p>
+            The 12 insufficient-evidence questions are set by the number of observations and the clear-sky fraction in the queried period.
+            A numeric answer is right when it falls within the reference range, which spans at least &plusmn;5% of the reference value.
+          </p>
+        </div>
+
+        <h2 class="title is-3 has-text-centered mt-6">Analysis Tasks</h2>
+        <div class="content has-text-justified">
+          <p>
+            Each question belongs to one of ten analysis tasks set by its template:
+            <em>Quantify</em> (49), <em>Trend</em> (28), <em>Date</em> (26), <em>Compare</em> (24), <em>Regional statistics</em> (21), <em>Attribute</em> (20), <em>Anomaly and climate</em> (19), <em>Detect</em> (16), <em>Season</em> (12), and <em>Recovery</em> (11), counted over the 226 computable and recognition questions.
+            109 of the 238 questions span two or more Landsat sensors.
+          </p>
+        </div>
+        <div class="figure">
+          <img src="static/images/tasks.webp" alt="One example question for each of the ten analysis tasks." loading="lazy">
+          <p class="caption">
+            <b>Analysis tasks.</b>
+            One shortened example question per task, with the reference answer in bold.
+            Multi-sensor questions span two or more Landsat sensors.
+            (a&ndash;i) Landsat true color, with the same extent and stretch within each pair.
+            (j) MODIS NDVI of the region in late July, from 0 (red) to 0.8 (green).
+          </p>
+        </div>
+
+        <h2 class="title is-3 has-text-centered mt-6">Protocol and Controls</h2>
+        <div class="content has-text-justified">
+          <p>
+            Each run uses a fresh, offline, CPU-only container with 4 CPUs and 24&nbsp;GB of memory, Python, a shell, geospatial and classical machine-learning libraries, and an image viewer.
+            All models share the same system prompt and tools, each run is limited to 3,600&nbsp;s of working time and 300 messages, and each answer is submitted with a confidence and a method summary with caveats.
+            Every question is run for three passes and scored on its conclusion field by pass<sup>3</sup>, which is 1 when the conclusion is right in all three passes and 0 otherwise.
+          </p>
+          <p>
+            Two controls test what the conclusions rest on.
+            <b>Closed-book</b> runs give the model the same question and the site's bounding box without the record, and measure what prior knowledge alone can answer.
+            <b>Instrument pairs</b> alter one satellite's data in the record while nothing changes on the ground, and score the answer against the original question and reference answer.
+            Of the 22 pairs, 21 scale one satellite's values from 2018 onward and one replaces Landsat 8 scenes from 2013&ndash;2017 with Landsat 7 scenes; every alteration can be found by comparison with a concurrent satellite.
+            Eight placebo pairs remove 5% of clear scenes at random and measure conclusion variability unrelated to the instrument.
+          </p>
+        </div>
+
+        <h2 class="title is-3 has-text-centered mt-6">Comparisons with Existing Benchmarks</h2>
+        <div class="content has-text-justified">
+          <p>
+            Only EarthRecord tests agents on the raw, multi-decadal, multi-sensor record with both controls: one for what prior knowledge alone can answer, and one for whether answers separate a change of sensor from a change on the ground.
+          </p>
+        </div>
+        <div class="compare-wrap">
+          <table class="compare">
+            <thead>
+              <tr><th>Group</th><th>Benchmark</th><th>Agent</th><th>Multi-decadal,<br>multi-sensor</th><th>Raw record</th><th>Prior control</th><th>Sensor / ground<br>control</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Vision-language</td><td>MMStar</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="yes">&#10003;</td><td class="no">&#10007;</td></tr>
+              <tr><td></td><td>NaturalBench</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td></tr>
+              <tr><td></td><td>OSI-Bench</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="yes">&#10003;</td><td class="no">&#10007;</td></tr>
+              <tr class="group-start"><td>Remote sensing vision-language</td><td>CHOICE</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="yes">&#10003;</td><td class="no">&#10007;</td></tr>
+              <tr><td></td><td>DVL-Bench</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td></tr>
+              <tr><td></td><td>GeoMMBench</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="yes">&#10003;</td><td class="no">&#10007;</td></tr>
+              <tr class="group-start"><td>Remote sensing foundation models</td><td>RSPDBench</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="yes">&#10003;</td></tr>
+              <tr><td></td><td>EarthShift</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="yes">&#10003;</td></tr>
+              <tr class="group-start"><td>Earth observation agents</td><td>UnivEARTH</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="no">&#10007;</td><td class="yes">&#10003;</td><td class="no">&#10007;</td></tr>
+              <tr><td></td><td>Earth-Bench</td><td class="yes">&#10003;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="yes">&#10003;</td><td class="no">&#10007;</td></tr>
+              <tr><td></td><td>ThinkGeo</td><td class="yes">&#10003;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td></tr>
+              <tr><td></td><td>TerraBench</td><td class="yes">&#10003;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td></tr>
+              <tr><td></td><td>DORA</td><td class="yes">&#10003;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td></tr>
+              <tr><td></td><td>AgenticCity-Bench</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="no">&#10007;</td><td class="no">&#10007;</td><td class="no">&#10007;</td></tr>
+              <tr class="group-start ours"><td></td><td>EarthRecord (ours)</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Results -->
+<section class="hero is-light is-small">
+  <div class="hero-body has-text-centered">
+    <h1 class="title is-1 band-title">Experiment Results</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered" id="leaderboard">Leaderboard</h2>
+        <div class="content has-text-justified">
+          <p>
+            We evaluate twelve multimodal agents from six developers in the same sandbox.
+            Scores are pass<sup>3</sup> (%), the share of questions answered right in all three passes, on the 226 computable and recognition questions.
+            The <a href="https://github.com/ranranrannervous/EarthRecord">code repository</a> runs a new agent on EarthRecord and reproduces every number below from the released runs.
+          </p>
+        </div>
+        <p class="leaderboard-note">Click a group header to expand detailed results, and a column header to sort.</p>
+        <div class="table-wrapper">
+          <table id="er-table"></table>
+        </div>
+        <p class="table-desc">
+          <b>Overall</b>: pass<sup>3</sup> with 95% bootstrap intervals over questions.
+          <b>By question class</b>: pass<sup>3</sup> with the record and in the closed book.
+          <b>Instrument pairs</b>: of the model&ndash;pair cases right on the original in all three passes, cases that turn wrong after the alteration (moved), stay right but are already right in the closed book or have no change as the reference (held), or stay right otherwise (beyond); placebo pairs remove 5% of clear scenes at random.
+          Bold marks the best model in each column (lowest share for moved).
+          The baselines are the majority class by answer type and an always-no-change answer.
+        </p>
+      </div>
+    </div>
+
+    <div class="columns is-centered mt-6">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Mapping from Imagery Is the Main Bottleneck</h2>
+        <div class="content has-text-justified">
+          <p>
+            The six leading models answer 92.0% of the questions computed directly from variables in the record but only 61.1% of those that need mapping from the imagery.
+            The gap holds within tasks: for the same model and task, the odds of a right answer on a mapping question are 0.31 times those on a computed one (95% interval 0.14&ndash;0.66).
+            Mapping is also where answers are hardest to get right and least stable: 15 of the 18 questions that no model answers right need a map.
+          </p>
+        </div>
+        <div class="figure is-narrow">
+          <img src="static/images/reftype.svg" alt="pass^3 of each model on computed and mapping questions." loading="lazy">
+          <p class="caption">
+            pass<sup>3</sup> (%) of each model on the 98 questions computed from variables in the record (grey) and the 78 questions that need mapping from the imagery, with references from withheld products (red).
+          </p>
+        </div>
+
+        <h2 class="title is-3 has-text-centered mt-6">Abstention and Confidence</h2>
+        <div class="content has-text-justified">
+          <p>
+            Some agents abstain without attempting to map.
+            On the 41 recognition questions that need a map, GPT-6.1 Sol, GPT-6 Astra, and GPT-6.1 Terra answer insufficient evidence in 46% to 67% of their runs, against 0.9% to 2.7% on the 37 computable questions that need a map.
+            Their abstaining runs make a median of two or three tool calls and mostly view no image, yet when these three models answer such questions, they are right in 85% to 98% of runs.
+          </p>
+          <p>
+            When agents answer, their confidence does not always signal errors.
+            Reported confidence separates right from wrong conclusions with an AUROC of 0.84 for Claude Sonnet 5.5 but of 0.63 to 0.67 for Gemini 3 Flash, Qwen 3.7 Flash, and GPT-6 Luna.
+            When an agent neither declines nor lowers its confidence, as with Gemini 3 Flash, its errors are the hardest for a user to notice.
+          </p>
+        </div>
+
+        <h2 class="title is-3 has-text-centered mt-6">Prior Knowledge, Pixels, or the Ground?</h2>
+        <div class="content has-text-justified">
+          <p>
+            With the record, answers shift from prior knowledge to the pixels.
+            All twelve models score 4.6 to 60.8 points higher on computable questions with the record than in the closed book, and far more answers turn from wrong to right than from right to wrong.
+            On recognition questions, by contrast, the record contributes less and prior knowledge persists: four models score lower with the record than in the closed book.
+          </p>
+          <p>
+            When one satellite's data change, the answers change with them.
+            53.5% of the cases right on the original turn wrong after the alteration, 91% of the changed answers move in the direction of the alteration, and answers on placebo pairs change in only 12% of cases.
+            Only 7.5% of the cases right on the original hold beyond both the closed book and a no-change answer.
+            Agents notice the change in the pixels but interpret it as change on the ground: of the wrong runs in cases that move, only 21% report the break and 3.5% attribute it to the instrument.
+          </p>
+        </div>
+        <div class="figure is-narrow">
+          <img src="static/images/pairs.svg" alt="Outcome of each model and instrument-pair case." loading="lazy">
+          <p class="caption">
+            <b>Outcomes on altered instrument pairs.</b>
+            Outcome of each model&ndash;pair case, with grey for cases wrong on the original.
+            Columns are the instrument pairs grouped by the altered satellite, then the placebo pairs.
+          </p>
+        </div>
+
+        <h2 class="title is-3 has-text-centered mt-6">Where Analyses Fail</h2>
+        <div class="content has-text-justified">
+          <p>
+            We coded the first step that departs from what the question asks in 144 failed runs, 12 per model drawn at random from the wrong runs.
+            The weaker six models often fail at the first step, using the wrong data or leaving the analysis unfinished in half of their failures.
+            Such failures are rare for the leading six (7 of 72); instead, their errors arise later, in an analytic judgment: how to map a change, how to sample time, or how to define the quantity the question asks for.
+          </p>
+        </div>
+        <div class="steps-chart" id="steps-chart" aria-label="First wrong step of 144 coded failed runs"></div>
+        <p class="caption has-text-centered">First wrong step of the 144 coded failed runs.</p>
+      </div>
+    </div>
+
+    <div class="columns is-centered mt-6">
+      <div class="column is-full">
+        <h2 class="title is-3 has-text-centered" id="examples">Examples</h2>
+        <div class="carousel">
+          <div class="carousel-track">
+            <div class="carousel-slide"><div class="box">
+              <img src="static/images/failures.webp" alt="Four failed runs at different steps." loading="lazy">
+              <p class="caption">
+                <b>Failed analyses.</b>
+                Four runs that fail at different steps, each with an excerpt of its report, a right run where one exists, and the reference.
+                Questions and quotations are shortened.
+                Landsat false color (SWIR2, NIR, red) in (a) and (d) and true color elsewhere, with the same extent and stretch within each pair.
+                The gap in (b) is drawn as the runs report it, and the yellow outline in (d) is the October 2020 burned area in the withheld MCD64A1 product.
+              </p>
+            </div></div>
+            <div class="carousel-slide"><div class="box">
+              <img src="static/images/failures_more.webp" alt="Six more failed runs." loading="lazy">
+              <p class="caption">
+                <b>More failed analyses.</b>
+                Six runs illustrating further failure modes, each with an excerpt of its report, a right run, and the reference.
+                Questions and quotations are shortened.
+                Landsat false color (SWIR2, NIR, red), with the same extent and stretch within each pair.
+              </p>
+            </div></div>
+            <div class="carousel-slide"><div class="box">
+              <img src="static/images/failures_moved.webp" alt="Two more failed runs." loading="lazy">
+              <p class="caption">
+                <b>More failed analyses.</b>
+                Two further runs, each with an excerpt of its report, a right run, and the reference.
+                Landsat true color, with the same extent and stretch within each pair.
+              </p>
+            </div></div>
+          </div>
+          <div class="carousel-nav">
+            <button class="prev" aria-label="Previous example"><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="carousel-dots"></div>
+            <button class="next" aria-label="Next example"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
+    <div class="bibtex-box">
+      <button class="button is-small is-light copy-button" id="copy-bibtex"><span class="icon"><i class="fa-regular fa-copy"></i></span><span class="label">Copy</span></button>
+<pre><code id="bibtex">@misc{zhang2026earthrecord,
+  title  = {{EarthRecord}: From Pixels to Land Change with Multimodal Agents over Four Decades of Satellite Imagery},
+  author = {Zhang, Haoran and Sun, Huizhen and Wen, Hanbin and Leng, Jie and Zhu, Jiaxin and Sun, Zhaohua},
+  year   = {2026}
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="columns is-centered">
+    <div class="column is-8">
+      <div class="content has-text-centered">
+        <p>
+          Landsat data courtesy of the U.S. Geological Survey. Contains modified Copernicus Sentinel data 2024.
+        </p>
+        <p>
+          This website is adapted from <a href="https://nerfies.github.io/">Nerfies</a> and <a href="https://mmmu-benchmark.github.io/">MMMU</a>, licensed under a
+          <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
