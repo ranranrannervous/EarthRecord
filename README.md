@@ -13,6 +13,7 @@ Haoran Zhang<sup>1,2</sup>, Huizhen Sun<sup>1</sup>, Hanbin Wen<sup>3</sup>, Jie
 <sup>5</sup>The University of Hong Kong<br>
 <sup>*</sup>Corresponding author: joshsun@hku.hk
 
+[![arXiv](https://img.shields.io/badge/arXiv-2611.12934-b31b1b?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2611.12934)
 [![Project Page](https://img.shields.io/badge/Project-Page-2f6db0?logo=googleearth&logoColor=white)](https://ranranrannervous.github.io/EarthRecord/)
 [![Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-ffd21e)](https://huggingface.co/datasets/haoranranranran/EarthRecord)
 [![Leaderboard](https://img.shields.io/badge/Leaderboard-12%20agents-e07b28)](https://ranranrannervous.github.io/EarthRecord/#leaderboard)
@@ -33,6 +34,7 @@ of right answers change when one satellite's data are altered. Landsat data cour
 
 ## 🔔 News
 
+- **[2026-11]** The paper is available on [arXiv](https://arxiv.org/abs/2611.12934).
 - **[2026-11]** We release the EarthRecord benchmark data, the evaluation code, and the results of all twelve agents.
 
 ## 📖 Overview
@@ -149,9 +151,13 @@ tests/
 
 ```bibtex
 @misc{zhang2026earthrecord,
-  title  = {{EarthRecord}: From Pixels to Land Change with Multimodal Agents over Four Decades of Satellite Imagery},
-  author = {Zhang, Haoran and Sun, Huizhen and Wen, Hanbin and Leng, Jie and Zhu, Jiaxin and Sun, Zhaohua},
-  year   = {2026}
+  title         = {{EarthRecord}: From Pixels to Land Change with Multimodal Agents over Four Decades of Satellite Imagery},
+  author        = {Zhang, Haoran and Sun, Huizhen and Wen, Hanbin and Leng, Jie and Zhu, Jiaxin and Sun, Zhaohua},
+  year          = {2026},
+  eprint        = {2611.12934},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.AI},
+  url           = {https://arxiv.org/abs/2611.12934}
 }
 ```
 
